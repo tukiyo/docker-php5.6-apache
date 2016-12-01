@@ -1,0 +1,7 @@
+web:
+  image: 03a6370b7004
+  volumes:
+      - ./cakephp:/var/www/html
+  ports:
+      - "8080:80"
+  #restart: always
