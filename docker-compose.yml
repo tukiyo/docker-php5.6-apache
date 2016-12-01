@@ -1,6 +1,8 @@
 web:
   image: tukiyo3/cakephp2
   volumes:
+      - ./files/apache.conf:/etc/apache2/sites-available/000-default.conf
+      - ./files/php.ini:/usr/local/etc/php/php.ini
       - ./cakephp:/var/www/html
   ports:
       - "8080:80"
