@@ -19,3 +19,6 @@ RUN echo "Asia/Tokyo" > /etc/timezone \
 COPY ./files/apache.conf /etc/apache2/sites-available/000-default.conf
 
 COPY ./files/php.ini /usr/local/etc/php/
+
+RUN ln -s /etc/php5/mods-available/*.ini /usr/local/etc/php/conf.d/
+#ENV PHP_INI_SCAN_DIR "/etc/php5/mods-available"
