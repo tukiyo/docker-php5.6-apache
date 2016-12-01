@@ -1,5 +1,5 @@
 web:
-  image: 03a6370b7004
+  image: tukiyo3/cakephp2
   volumes:
       - ./cakephp:/var/www/html
   ports:
