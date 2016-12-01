@@ -13,6 +13,9 @@ RUN apt-get update \
 COPY ./files/composer.phar /usr/bin/composer
 RUN chmod +x /usr/bin/composer
 
+RUN echo "Asia/Tokyo" > /etc/timezone \
+    && dpkg-reconfigure -f noninteractive tzdata
+
 COPY ./files/apache.conf /etc/apache2/sites-available/000-default.conf
 
 COPY ./files/php.ini /usr/local/etc/php/
