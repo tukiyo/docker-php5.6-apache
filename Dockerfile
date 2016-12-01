@@ -1,11 +1,12 @@
-FROM php:5-apache
+FROM php:5.6-apache
 
 ENV DEBIAN_FRONTEND noninteractive
 
 RUN apt-get update \
-    && apt-get -y install php5-mysql php5-mcrypt curl \
-    && php5enmod mcrypt \
-    && apt-get clean
+ && apt-get -y install \
+    php5-mysql php5-mcrypt php5-intl curl zip unzip git \
+ && php5enmod mcrypt \
+ && apt-get clean
 
 #RUN curl -sSL https://getcomposer.org/installer | php \
 #    && mv composer.phar /usr/bin/composer \
