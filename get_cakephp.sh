@@ -1,6 +1,18 @@
-rm -f cakephp/.gitkeep
-rmdir cakephp
+#!/bin/sh
+set -eu
+# check https://github.com/cakephp/cakephp/releases
+VERSION="2.9.3"
 
-git clone -b 2.x git://github.com/cakephp/cakephp.git
+if [ ! -e ${VERSION}.tar.gz ];then
+    curl -L -O https://github.com/cakephp/cakephp/archive/${VERSION}.tar.gz
+fi
+tar xzf ${VERSION}.tar.gz
+mv cakephp-${VERSION} cakephp
+
+if [ -e cakephp/.gitkeep ];then
+    rm -f cakephp/.gitkeep
+    rmdir cakephp
+fi
+
 cd cakephp
 chmod -R 777 app/tmp
