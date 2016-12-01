@@ -16,3 +16,5 @@ fi
 
 cd cakephp
 chmod -R 777 app/tmp
+
+chmod 777 logs

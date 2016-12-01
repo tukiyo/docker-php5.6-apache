@@ -1,3 +1,4 @@
 cakephp
 *.tar.gz
 *.swp
+*log

@@ -3,7 +3,8 @@ web:
   volumes:
       - ./files/apache.conf:/etc/apache2/sites-available/000-default.conf
       - ./files/php.ini:/usr/local/etc/php/php.ini
-      - ./cakephp:/var/www/html
+      - ./cakephp/:/var/www/html
+      - ./logs/:/var/log/apache2/
   ports:
       - "8080:80"
   #restart: always
