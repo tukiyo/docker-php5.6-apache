@@ -1,6 +1,8 @@
 #!/bin/sh
 set -eu
-VERSION="2.2.6"
+# see https://github.com/bcit-ci/CodeIgniter/releases
+#VERSION="2.2.6"
+VERSION="3.1.2"
 
 if [ ! -e ${VERSION} ];then
     curl -L -O https://codeload.github.com/bcit-ci/CodeIgniter/zip/${VERSION}
@@ -8,10 +10,9 @@ fi
 unzip ${VERSION}
 
 if [ -e src/.gitkeep ];then
-    rm -f src/.gitkeep
-    rmdir src
+    mv src src.bak
+    ln -s CodeIgniter-${VERSION} src
 fi
-mv CodeIgniter-${VERSION} src
 
 chmod -R 777 src/application/logs/
 
