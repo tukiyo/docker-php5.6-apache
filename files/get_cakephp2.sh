@@ -8,10 +8,8 @@ if [ ! -e ${VERSION}.tar.gz ];then
 fi
 tar xzf ${VERSION}.tar.gz
 
-if [ -e src/.gitkeep ];then
-    rm -f src/.gitkeep
-    rmdir src
-fi
+rm -rdf src
+
 mv cakephp-${VERSION} src
 
 chmod -R 777 src/app/tmp
